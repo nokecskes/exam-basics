@@ -1,5 +1,11 @@
 package copy;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+
 /**
  * Created by Connor on 2017.04.18..
  */
@@ -20,8 +26,14 @@ public class Copy {
     } else if (args.length == 1) {
       System.out.println("No destination provided");
     } else {
-      System.out.println("valid arg");
+      try{
+        Path sourcePath = Paths.get(args[0]);
+        List<String> lines = Files.readAllLines(sourcePath);
+        Path destinationPath = Paths.get(args[1]);
+        Files.write(destinationPath, lines);
+      }catch(IOException e) {
+        System.out.println("An error occurred, couldn't copy the file.");
+      }
     }
-
   }
 }
