@@ -18,30 +18,41 @@ public class Deck {
   String[] values;
 
   public Deck(int number) {
-    colors = new String[]{"Clubs", "Diamonds", "Hearts", "Spades"};
-    values = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen",
+    colors = new String[] {"Clubs", "Diamonds", "Hearts", "Spades"};
+    values = new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen",
             "King", "Ace"};
     myDeck = new ArrayList<>();
-    if (number > 4) {
+    if (number < 4) {
       for (int i = 0; i < (number - 1); i++) {
-        Card card = new Card(colors[i], values[randomNumberGenerator(0, 14)]);
+        Card card = new Card(colors[i], values[randomNumberGenerator(14)]);
         myDeck.add(card);
       }
     } else {
       for (int i = 0; i < number; i++) {
-        Card card = new Card(colors[randomNumberGenerator(0, 3)],
-                values[randomNumberGenerator(0, 14)]);
+        Card card = new Card(colors[randomNumberGenerator(4)],
+                values[randomNumberGenerator(14)]);
       }
     }
   }
 
-  public int randomNumberGenerator(int min, int max) {
-    int random = (int) (min + Math.random() * max);
+  public int randomNumberGenerator(int max) {
+    int random = (int) (Math.random() * max);
+    System.out.println(random);
     return random;
   }
 
-  public String printDeck() {
-    HashMap<String, Integer> deck = new
+  public String getDeckStatus() {
+    HashMap<String, Integer> deck = new HashMap<>();
+    for (Card card : myDeck) {
+      if(deck.get(card.color) != null) {
+        deck.put(card.color, deck.get(card.color) + 1);
+      }else {
+        deck.put(card.color, 1);
+      }
+    }
+
+    String deckStatus = myDeck.size() + " cards - " + deck.get("Clubs") + " Clubs, " +  deck.get("Diamonds")+ " Diamonds, " +  deck.get("Hearts") + " Hearts, " +  deck.get("Spades") + "Spades";
+    return deckStatus;
   }
 
 
