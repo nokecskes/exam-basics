@@ -15,7 +15,7 @@ public class OddAvg {
 
     ArrayList<Integer> numberList = new ArrayList<>();
     numberList = fillList(numberList);
-    double oddAverage = calculateOddAverage(numberList);
+    double oddAverage = oddAverage(numberList);
     System.out.println("The average of the odd numbers is: " + oddAverage);
   }
 
@@ -30,7 +30,7 @@ public class OddAvg {
     return numberList;
   }
 
-  public static double calculateOddAverage(ArrayList<Integer> numberList) {
+  public static double oddAverage(ArrayList<Integer> numberList) {
     int sum = 0;
     int counter = 0;
     double average = 0;
