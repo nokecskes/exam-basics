@@ -15,7 +15,7 @@ public class OddAvg {
 
     ArrayList<Integer> numberList = new ArrayList<>();
     numberList = fillList(numberList);
-    double oddAverage = oddAverage(numberList);
+    double oddAverage = calculateOddAverage(numberList);
     System.out.println("The average of the odd numbers is: " + oddAverage);
   }
 
@@ -24,13 +24,13 @@ public class OddAvg {
     Scanner scanner = new Scanner(System.in);
     int listLength = scanner.nextInt();
     for (int i = 0; i < listLength ; i++) {
-      System.out.println("Give me number " + (i + 1));
+      System.out.println("Give me number " + (i + 1) + ":");
       numberList.add(scanner.nextInt());
     }
     return numberList;
   }
 
-  public static double oddAverage(ArrayList<Integer> numberList) {
+  public static double calculateOddAverage(ArrayList<Integer> numberList) {
     int sum = 0;
     int counter = 0;
     double average = 0;
@@ -40,8 +40,12 @@ public class OddAvg {
         counter++;
       }
     }
-    average = (double) sum / (double) counter;
-    return average;
+    if (sum == 0) {
+      return 0;
+    } else {
+      average = (double) sum / (double) counter;
+      return average;
+    }
   }
 
 
