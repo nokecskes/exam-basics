@@ -20,7 +20,7 @@ class OddAvgTest {
       testList.add(i + 1);
     }
     expectedAverage = 5;
-    assertEquals(expectedAverage, oddAvg.calculateOddAverage(testList));
+    assertEquals(expectedAverage, oddAvg.oddAverage(testList));
   }
 
   @Test
@@ -30,7 +30,7 @@ class OddAvgTest {
       testList.add(i);
     }
     expectedAverage = 0;
-    assertEquals(expectedAverage, oddAvg.calculateOddAverage(testList));
+    assertEquals(expectedAverage, oddAvg.oddAverage(testList));
   }
 
   @Test
@@ -40,13 +40,13 @@ class OddAvgTest {
     testList.add(3);
     testList.add(7);
     expectedAverage = 11d / 3d;
-    assertEquals(expectedAverage, oddAvg.calculateOddAverage(testList));
+    assertEquals(expectedAverage, oddAvg.oddAverage(testList));
   }
 
   @Test
   void emptyList() {
     testList.clear();
     expectedAverage = 0;
-    assertEquals(expectedAverage, oddAvg.calculateOddAverage(testList));
+    assertEquals(expectedAverage, oddAvg.oddAverage(testList));
   }
 }
