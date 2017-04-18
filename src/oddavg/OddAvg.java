@@ -1,6 +1,7 @@
 package oddavg;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Created by Connor on 2017.04.18..
@@ -13,27 +14,35 @@ public class OddAvg {
     // Create basic unit tests for it with at least 3 different test cases
 
     ArrayList<Integer> numberList = new ArrayList<>();
-    for (int i = 0; i < 10 ; i++) {
-      numberList.add(i + 1);
-    }
-    int oddAverage = oddAverage(numberList);
-    System.out.println(oddAverage);
+    numberList = fillList(numberList);
+    double oddAverage = oddAverage(numberList);
+    System.out.println("The average of the odd numbers is: " + oddAverage);
   }
 
-  public static int oddAverage(ArrayList<Integer> numberList) {
+  public static ArrayList<Integer> fillList(ArrayList<Integer> numberList) {
+    System.out.println("How many numbers do you want to store?");
+    Scanner scanner = new Scanner(System.in);
+    int listLength = scanner.nextInt();
+    for (int i = 0; i < listLength ; i++) {
+      System.out.println("Give me number " + (i + 1));
+      numberList.add(scanner.nextInt());
+    }
+    return numberList;
+  }
+
+  public static double oddAverage(ArrayList<Integer> numberList) {
     int sum = 0;
-    int average = 0;
     int counter = 0;
+    double average = 0;
     for (int number : numberList) {
-      if(number % 2 == 1) {
+      if (number % 2 == 1) {
         sum += number;
         counter++;
       }
     }
-    average = sum / counter;
+    average = (double) sum / (double) counter;
     return average;
   }
-
 
 
 }
