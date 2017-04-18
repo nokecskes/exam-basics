@@ -21,6 +21,8 @@ public class Copy {
     // When both arguments provided and the source is a file
     // Read all contents from it and write it to the destination
 
+    System.out.println("not working");
+
    /* if(args.length != 1 && args.length != 2) {
       System.out.println("Usage: copy [source] [destination]");
     } else if (args.length == 1) {
@@ -34,6 +36,6 @@ public class Copy {
       }catch(IOException e) {
         System.out.println("An error occurred, couldn't copy the file.");
       }
-    }
-  }*/
+    }*/
+  }
 }
