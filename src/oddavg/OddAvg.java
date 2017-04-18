@@ -23,7 +23,7 @@ public class OddAvg {
     System.out.println("How many numbers do you want to store?");
     Scanner scanner = new Scanner(System.in);
     int listLength = scanner.nextInt();
-    for (int i = 0; i < listLength ; i++) {
+    for (int i = 0; i < listLength; i++) {
       System.out.println("Give me number " + (i + 1) + ":");
       numberList.add(scanner.nextInt());
     }
